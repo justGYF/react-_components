@@ -13,7 +13,7 @@ class Content extends React.Component {
                     <Route path="/" exact>
                         <div className={layout[`${name}-content-visible`]}>
                             HOMEPAGE
-                        </div>       
+                        </div>
                     </Route>
                     {
                         routeList.map(item => (

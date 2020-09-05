@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import routeList from '../router'
 
 const name = 'layout'
-console.log(routeList)
 
 class routeNav extends React.Component {
     render () {
@@ -14,7 +13,12 @@ class routeNav extends React.Component {
                     routeList.map((item, index) => (
                         <li key={item.label}>
                             <span>{index + 1}.</span>
-                            <Link to={item.path}>{item.label}</Link>
+                            <Link to={{
+                                    pathname: item.path,
+                                    state: item.state || null
+                                }} >
+                                    {item.label}
+                                </Link>
                         </li>
                     ))    
                 }
