@@ -1,5 +1,6 @@
 const { default: Todolist } = require("../components/todolist");
 const { default: PropsDeep } = require("../components/propsdeep");
+const { default: CounDown } = require("../components/timeComp");
 
 const routeList = [
     {
@@ -16,6 +17,11 @@ const routeList = [
             num: 123,
             size: 'big'
         }
+    },
+    {
+        path: '/coundown',
+        label: 'CountDown',
+        comp: CounDown
     }
 ]
 

@@ -9,7 +9,7 @@ class Display extends React.Component {
                 <h1>{ this.props.color }</h1>
                 <h1>{ this.props.num }</h1>
                 <h1>{ this.props.size }</h1>
-                <p>测试多层级嵌套组件，通过${str}的形式传递值</p>
+                <p>测试多层级嵌套组件，通过{str}的形式传递值</p>
                 <p>测试路由传参，state</p>
             </div>
         )
