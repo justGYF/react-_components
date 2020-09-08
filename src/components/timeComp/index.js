@@ -32,8 +32,11 @@ class CountDown extends React.Component {
             let newNum = typeof +this.props.num === 'number' ? +this.props.num : 0;
 
             timer = setInterval(() => {
-                this.setState({
-                    num: newNum += 100
+                this.setState((state, props) => {
+                    // setState为异步更改，state表示上一个state, props为当前已改变的props
+                    return {
+                        num: newNum += 100
+                    }
                 })
             }, 1000)
         }
@@ -75,10 +78,9 @@ class InputValue extends React.Component {
     }
 }
 
-// 父组件
-// 引用倒计时组件，输入框组件，输入框值改变，倒计时组件重置数据
-// 数据流， 输入框 - 父组件 - 倒计时组件（模拟兄弟组件通信）
-// 兄弟组件通信怎么做？
+// 兄弟组件通信怎么做 - 状态提升
+// 两个组件之间需要相互通讯的情况时，需要把子组件的 state 数据提升至其共同的父组件当中保存。
+// 之后父组件可以通过 props 将状态数据传递到子组件当
 class CountDownContent extends React.Component {
     constructor (props) {
         super(props)
