@@ -8,11 +8,14 @@ let timer = 0
 class CountDown extends React.Component {
     constructor (props) {
         super(props)
+        console.log('init state and props')
         this.state = {
             num: 0
         }
     }
+
     componentDidMount () {
+        console.log('dom did mount')
         this.setState({
             num: this.props.num
         })
@@ -26,6 +29,7 @@ class CountDown extends React.Component {
 
     componentDidUpdate (prevProps, prevState) {
 
+        console.log('dom did update')
         // 当输入值改变时，重新进行倒计时
         if (prevProps.num !== this.props.num) {
             clearInterval(timer)
@@ -42,7 +46,12 @@ class CountDown extends React.Component {
         }
     }
 
+    componentWillUnmount () {
+        console.log('dom will unmount')
+    }
+
     render () {
+        console.log('dom is render')
         return (
             <h1>{this.state.num}</h1>
         )
