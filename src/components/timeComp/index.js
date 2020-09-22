@@ -21,8 +21,9 @@ class CountDown extends React.Component {
         })
 
         timer = setInterval(() => {
+            let nums = this.state.num
             this.setState({
-                num: this.state.num += 100
+                num: nums + 100
             })
         }, 1000)
     }
