@@ -65,7 +65,7 @@
     "workbox-webpack-plugin": "4.3.1"
   },
   "scripts": {
-    "start": "node scripts/start.js",
+    "start": "node scripts/start.js --report",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"
   },
@@ -85,6 +85,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.10.5",
     "node-sass": "^4.14.1"
   },
   "jest": {
@@ -138,6 +139,14 @@
   "babel": {
     "presets": [
       "react-app"
+    ],
+    "plugins": [
+      [
+        "@babel/plugin-proposal-decorators",
+        {
+          "legacy": true
+        }
+      ]
     ]
   }
 }
