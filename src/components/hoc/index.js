@@ -9,15 +9,31 @@ const AddProps = Comp => {
 
 // HOC -- 高阶组件，对组件进行操作添加，返回新的组件
 const AddActive = Comp => {
-    const print = () => {
-        console.log('addActive')
+
+    return class extends Component {
+        constructor () {
+            super()
+            this.state = {
+                num: 1
+            }
+        }
+
+        print = () => {
+            // preState指改变前的state, props指更新后的
+            this.setState((preState, props) => {
+                console.log(this.state.num + 1)
+                return {
+                    num: preState.num + 1
+                }
+            })
+        }
+
+        render () {
+            return (
+                <Comp {...this.props} click={this.print}></Comp>
+            )
+        }
     }
-    return props => (
-        <div onClick={print}>
-            <Comp {...props}></Comp>
-        </div>
-        
-    )
 }
 
 // 原组件 - 无状态组件，纯展示组件，只展示，不处理逻辑
@@ -25,9 +41,8 @@ const AddActive = Comp => {
 @AddActive
 class ShowName extends Component {
     render () {
-        console.log(this.props)
         return (
-            <div>{ this.props.name }</div>
+            <div onClick={this.props.click}>{ this.props.name }</div>
         )
     }
 }
