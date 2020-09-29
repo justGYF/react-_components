@@ -3,6 +3,7 @@ const { default: PropsDeep } = require("../components/propsdeep");
 const { default: CounDown } = require("../components/timeComp");
 const { default: HOC } = require("../components/hoc");
 const { default: Composition } = require("../components/composition");
+const { default: KeyBoard } = require("../components/keyboard");
 
 const routeList = [
     {
@@ -34,6 +35,11 @@ const routeList = [
         path: '/composition',
         label: '组件组合',
         comp: Composition
+    },
+    {
+        path: '/keyboard',
+        label: '键盘组件',
+        comp: KeyBoard
     }
 ]
 

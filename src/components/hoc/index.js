@@ -29,8 +29,9 @@ const AddActive = Comp => {
         }
 
         render () {
+            console.log(this.props)
             return (
-                <Comp {...this.props} click={this.print}></Comp>
+                <Comp {...this.props} click={this.print} ss='s'></Comp>
             )
         }
     }
@@ -47,5 +48,22 @@ class ShowName extends Component {
     }
 }
 
+// const compose = (...arg) => {
+//     if (arg.length === 0) {
+//         return arg => arg
+//     }
+
+//     if (arg.length === 1) {
+//         return arg[0]()
+//     }
+
+//     return arg.reduce((a, b) => {
+//         return (...args) => (
+//             a(b(...args))
+//         )
+//     })
+// }
+
+// const a = compose(AddActive, AddProps)(ShowName)
 
 export default ShowName
